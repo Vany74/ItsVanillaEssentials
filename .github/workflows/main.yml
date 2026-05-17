@@ -1,0 +1,24 @@
+name: Build
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: temurin
+      - name: Install Paper API
+        run: |
+          wget -q https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/132/downloads/paper-1.21.1-132.jar -O paper.jar
+          mvn install:install-file -Dfile=paper.jar -DgroupId=org.spigotmc -DartifactId=spigot-api -Dversion=1.21.1-R0.1-SNAPSHOT -Dpackaging=jar -q
+      - run: mvn clean package -B
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ItsVanillaEssential
+          path: target/ItsVanillaEssential-*.jar
+          
