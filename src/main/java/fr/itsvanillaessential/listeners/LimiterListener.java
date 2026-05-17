@@ -68,7 +68,7 @@ public class LimiterListener implements Listener {
     // ══════════════════════════════════════════════════════════════════════════
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-    public void onPickup(EntityPickupItemEvent event) {
+    public void onPickup(PlayerPickupItemEvent event) {
         if (!(event.getEntity() instanceof Player player)) return;
         Material mat = event.getItem().getItemStack().getType();
         if (!plugin.getItemLimiterManager().isEnabled()) return;
