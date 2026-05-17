@@ -12,6 +12,27 @@ jobs:
         with:
           java-version: '21'
           distribution: temurin
+          server-id: spigot-repo
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+      - run: mvn clean package -B
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ItsVanillaEssential
+          path: target/ItsVanillaEssential-*.jarname: Build
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: temurin
       - name: Install Paper API
         run: |
           wget -q https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/132/downloads/paper-1.21.1-132.jar -O paper.jar
