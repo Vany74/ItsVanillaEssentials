@@ -53,7 +53,7 @@ public class KitManager {
         if (cooldownSecs == 0) return false;
         long last = cooldownData.getLong(player.getUniqueId() + "." + kitName, 0L);
         if (last == 0) return false;
-        if (cooldownSecs == -1) return true; // one-time kit
+        if (cooldownSecs == -1) return true;
         return (System.currentTimeMillis() - last) < cooldownSecs * 1000L;
     }
 
@@ -72,7 +72,7 @@ public class KitManager {
     public void giveKit(Player player, String kitName) {
         List<ItemStack> items = getKitItems(kitName);
         for (ItemStack item : items) {
-            Map<ItemStack, Integer> leftover = player.getInventory().addItem(item);
+            Map<Integer, ItemStack> leftover = player.getInventory().addItem(item);
             leftover.values().forEach(i -> player.getWorld().dropItemNaturally(player.getLocation(), i));
         }
         setCooldown(player, kitName);
