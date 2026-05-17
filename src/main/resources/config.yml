@@ -1,0 +1,94 @@
+# CoreEssentials - Configuration
+
+# Préfixe du plugin
+prefix: "&8[&6CoreEssentials&8] &r"
+
+# Spawn
+spawn:
+  world: "world"
+  x: 0.5
+  y: 64.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+
+# Homes
+homes:
+  max-homes-default: 3         # Homes par défaut
+  max-homes-vip: 6
+  max-homes-premium: 10
+
+# Téléportation
+teleport:
+  delay: 3                     # Délai en secondes avant tp (0 = instantané)
+  tpa-timeout: 60              # Timeout demande de tp en secondes
+  rtp-radius: 5000             # Rayon max du RTP
+  rtp-min-radius: 100          # Rayon min du RTP (évite le spawn)
+
+# Kits (cooldown en secondes, -1 = une seule fois)
+kits:
+  starter:
+    cooldown: -1
+    items:
+      - "IRON_SWORD:1"
+      - "IRON_PICKAXE:1"
+      - "IRON_AXE:1"
+      - "BREAD:16"
+      - "TORCH:32"
+  daily:
+    cooldown: 86400
+    items:
+      - "GOLDEN_APPLE:3"
+      - "COOKED_BEEF:16"
+      - "ARROW:32"
+  pvp:
+    cooldown: 3600
+    items:
+      - "IRON_SWORD:1"
+      - "IRON_CHESTPLATE:1"
+      - "GOLDEN_APPLE:2"
+      - "ARROW:16"
+
+# Messages
+messages:
+  no-permission: "&cVous n'avez pas la permission."
+  player-only: "&cCette commande est réservée aux joueurs."
+  player-not-found: "&cJoueur introuvable."
+  teleported: "&aVous avez été téléporté(e)."
+  tp-delay: "&eTéléportation dans &6{delay} &esecondes... Ne bougez pas !"
+  tp-cancelled: "&cTéléportation annulée (vous avez bougé)."
+
+# AFK
+afk:
+  timeout: 300                 # Temps avant AFK auto (secondes, 0 = désactivé)
+  kick-after: 0                # Kick après X secondes AFK (0 = désactivé)
+
+# Chat
+chat:
+  afk-suffix: " &7[AFK]"
+  muted-message: "&cVous êtes muet(e)."
+
+# Nick
+nick:
+  max-length: 16
+  allow-colors: true           # Autoriser les couleurs dans les nicks (permission: core.nick.color)
+
+# Command Blocker
+command-blocker:
+  notify-admins-default: true
+
+# Broadcast
+broadcast:
+  format: "&6[Annonce] &f{message}"
+
+# Mace announce
+mace:
+  announce-craft: true
+  announce-destroy: true
+  announce-craft-format: "&6&l⚔ MACE CRAFTÉE ! &e{player}{team} &6a forgé une &lMACE &6!"
+  announce-destroy-format: "&c&l💥 MACE DÉTRUITE ! &e{player}{team} &ca perdu sa &lMACE &c!"
+
+# World access
+worlds:
+  end-enabled: true
+  nether-enabled: true

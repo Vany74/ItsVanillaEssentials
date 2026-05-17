@@ -1,0 +1,103 @@
+# ╔══════════════════════════════════════════════════════════╗
+# ║         CoreEssentials - Crafts Personnalisés            ║
+# ╠══════════════════════════════════════════════════════════╣
+# ║  Types supportés : shaped (positionnel) / shapeless      ║
+# ║                                                          ║
+# ║  SHAPED - grille 3x3 avec positions importantes :        ║
+# ║    shape: ["AAA","ABA","AAA"]  (1 à 3 lignes de 3 chars) ║
+# ║    ' ' (espace) = case vide                              ║
+# ║    ingredients: char -> material                         ║
+# ║                                                          ║
+# ║  SHAPELESS - ordre non important :                       ║
+# ║    ingredients: liste de materials                       ║
+# ║                                                          ║
+# ║  RESULT options :                                        ║
+# ║    material, amount, name, lore, enchantments,           ║
+# ║    custom-model-data                                     ║
+# ║                                                          ║
+# ║  COMMANDES :                                             ║
+# ║    /craft list                - lister les crafts        ║
+# ║    /craft info <id>           - détails d'un craft       ║
+# ║    /craft delete <id>         - supprimer un craft       ║
+# ║    /craft reload              - recharger les crafts     ║
+# ║    /craft addshapeless <id> <résultat> <quantité>        ║
+# ║                               <ing1> [ing2] ...          ║
+# ║    /craft addshapedgui <id>   - GUI interactif           ║
+# ╚══════════════════════════════════════════════════════════╝
+
+crafts:
+
+  # ── Exemple 1 : Saddle craftable ──────────────────────────
+  saddle:
+    type: shaped
+    shape:
+      - "LLL"
+      - "LSL"
+      - " I "
+    ingredients:
+      L: LEATHER
+      S: STRING
+      I: IRON_INGOT
+    result:
+      material: SADDLE
+      amount: 1
+
+  # ── Exemple 2 : Pomme en or craftable sans lingots ─────────
+  golden_apple_easy:
+    type: shaped
+    shape:
+      - "GGG"
+      - "GAG"
+      - "GGG"
+    ingredients:
+      G: GOLD_NUGGET
+      A: APPLE
+    result:
+      material: GOLDEN_APPLE
+      amount: 1
+
+  # ── Exemple 3 : Torche x8 avec charbon de bois ─────────────
+  torch_charcoal:
+    type: shaped
+    shape:
+      - "C"
+      - "S"
+    ingredients:
+      C: CHARCOAL
+      S: STICK
+    result:
+      material: TORCH
+      amount: 8
+
+  # ── Exemple 4 : Craft sans forme (shapeless) ───────────────
+  gravel_to_flint:
+    type: shapeless
+    ingredients:
+      - GRAVEL
+      - GRAVEL
+      - GRAVEL
+    result:
+      material: FLINT
+      amount: 1
+
+  # ── Exemple 5 : Item custom avec nom, lore et enchant ──────
+  sword_of_power:
+    type: shaped
+    shape:
+      - " D "
+      - " D "
+      - " S "
+    ingredients:
+      D: DIAMOND
+      S: BLAZE_ROD
+    result:
+      material: DIAMOND_SWORD
+      amount: 1
+      name: "&6⚔ Épée du Pouvoir"
+      lore:
+        - "&7Une épée forgée dans les flammes."
+        - "&cDégâts: &f+10"
+      enchantments:
+        sharpness: 5
+        unbreaking: 3
+        fire_aspect: 2

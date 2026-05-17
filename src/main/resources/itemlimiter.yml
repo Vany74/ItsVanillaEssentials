@@ -1,0 +1,58 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║          CoreEssentials - Item Limiter                       ║
+# ╠══════════════════════════════════════════════════════════════╣
+# ║  Limite la possession/utilisation d'items par joueur.        ║
+# ║                                                              ║
+# ║  MODES de limite :                                           ║
+# ║   inventory  - max X dans l'inventaire total                 ║
+# ║   hotbar     - max X dans la hotbar (slots 0-8)              ║
+# ║   held       - interdit de tenir l'item en main              ║
+# ║   pickup     - interdit de ramasser l'item                   ║
+# ║   drop       - interdit de lâcher l'item                     ║
+# ║   use        - interdit d'utiliser/cliquer l'item            ║
+# ║                                                              ║
+# ║  COMMANDES :                                                 ║
+# ║    /itemlimit list                                           ║
+# ║    /itemlimit info <item>                                    ║
+# ║    /itemlimit set <item> <mode> <valeur>                     ║
+# ║    /itemlimit remove <item>                                  ║
+# ║    /itemlimit check <joueur> [item]                          ║
+# ║    /itemlimit reload                                         ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+enabled: true
+
+default-blocked-message: "&cVous ne pouvez pas avoir plus de {max} {item}."
+
+limits:
+  # ── Limiter les golden apples à 10 dans l'inventaire ─────────
+  GOLDEN_APPLE:
+    enabled: true
+    modes:
+      inventory: 10
+    bypass-permission: "core.itemlimit.bypass.golden_apple"
+    worlds: []
+    blocked-message: "&cVous ne pouvez pas avoir plus de &e10 &cpommes en or."
+    # Action quand la limite est dépassée
+    # remove = supprime l'excédent, deny = empêche de prendre, warn = avertit seulement
+    action: "deny"
+
+  # ── Limiter les enchanted golden apples à 2 ──────────────────
+  ENCHANTED_GOLDEN_APPLE:
+    enabled: true
+    modes:
+      inventory: 2
+    bypass-permission: "core.itemlimit.bypass.notch_apple"
+    worlds: []
+    blocked-message: "&cMax &e2 &cpommes enchantées par joueur !"
+    action: "deny"
+
+  # ── Interdire de tenir une tête en main ───────────────────────
+  CREEPER_HEAD:
+    enabled: true
+    modes:
+      held: true
+    bypass-permission: "core.itemlimit.bypass.creeper_head"
+    worlds: []
+    blocked-message: "&cVous ne pouvez pas tenir cela en main."
+    action: "deny"

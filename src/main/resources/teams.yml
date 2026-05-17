@@ -1,0 +1,59 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║          CoreEssentials - Système de Teams                   ║
+# ╠══════════════════════════════════════════════════════════════╣
+# ║  Système de teams entièrement personnalisable.               ║
+# ║                                                              ║
+# ║  COMMANDES :                                                 ║
+# ║    /team create <nom> [couleur]   - créer une team           ║
+# ║    /team delete <nom>             - supprimer une team        ║
+# ║    /team add <joueur> <team>      - ajouter un joueur        ║
+# ║    /team remove <joueur>          - retirer un joueur        ║
+# ║    /team list                     - lister les teams         ║
+# ║    /team info <team>              - infos d'une team          ║
+# ║    /team chat <message>           - chat de team             ║
+# ║    /team setmax <team> <nb>       - limite de membres        ║
+# ║    /team setmaces <team> <nb>     - limite de maces          ║
+# ║    /team prefix <team> <préfixe>  - préfixe de team          ║
+# ║    /team reload                   - recharger                ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# Taille max d'une team par défaut (0 = illimité)
+default-max-members: 0
+
+# Nombre max de maces par team par défaut
+default-max-maces: 1
+
+# Préfixe affiché dans le chat pour les membres
+show-prefix-in-chat: true
+
+# Format du chat de team : {team_prefix} {player} {message}
+team-chat-format: "&8[&{color}{team}&8] &7{player}&8: &f{message}"
+
+# Format du préfixe dans le tab/chat : [{team}]
+chat-prefix-format: "&8[&{color}{team}&8] "
+
+# Couleurs disponibles (nom Minecraft valide)
+available-colors:
+  - "red"
+  - "blue"
+  - "green"
+  - "yellow"
+  - "gold"
+  - "aqua"
+  - "light_purple"
+  - "white"
+  - "gray"
+  - "dark_red"
+  - "dark_blue"
+  - "dark_green"
+  - "dark_aqua"
+  - "dark_purple"
+  - "dark_gray"
+
+# ── Définition des teams ─────────────────────────────────────────
+# Créées automatiquement au démarrage
+teams: {}
+
+# ── Données des joueurs ──────────────────────────────────────────
+# (géré automatiquement, ne pas modifier manuellement)
+player-teams: {}

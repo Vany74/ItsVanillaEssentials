@@ -1,0 +1,353 @@
+name: ItsVanillaEssential
+version: '${project.version}'
+main: fr.itsvanillaessential.CoreEssentials
+api-version: '1.21'
+description: Plugin Essentials-like pour SMP PvP
+author: YourName
+
+commands:
+  # Téléportation
+  spawn:
+    description: Téléporte au spawn
+    usage: /spawn
+    permission: core.spawn
+  home:
+    description: Gérer ses homes
+    usage: /home [nom]
+    permission: core.home
+  sethome:
+    description: Définir un home
+    usage: /sethome [nom]
+    permission: core.sethome
+  delhome:
+    description: Supprimer un home
+    usage: /delhome <nom>
+    permission: core.delhome
+  homes:
+    description: Lister ses homes
+    usage: /homes
+    permission: core.home
+  warp:
+    description: Se téléporter à un warp
+    usage: /warp [nom]
+    permission: core.warp
+  setwarp:
+    description: Créer un warp
+    usage: /setwarp <nom>
+    permission: core.setwarp
+  delwarp:
+    description: Supprimer un warp
+    usage: /delwarp <nom>
+    permission: core.delwarp
+  tp:
+    description: Se téléporter à un joueur
+    usage: /tp <joueur>
+    permission: core.tp
+  tpa:
+    description: Demande de tp à un joueur
+    usage: /tpa <joueur>
+    permission: core.tpa
+  tpaccept:
+    description: Accepter une demande de tp
+    usage: /tpaccept
+    permission: core.tpa
+  tpdeny:
+    description: Refuser une demande de tp
+    usage: /tpdeny
+    permission: core.tpa
+  tphere:
+    description: Téléporter un joueur à soi
+    usage: /tphere <joueur>
+    permission: core.tphere
+  back:
+    description: Retourner à sa dernière position
+    usage: /back
+    permission: core.back
+  rtp:
+    description: Téléportation aléatoire
+    usage: /rtp
+    permission: core.rtp
+
+  # Messages
+  msg:
+    description: Envoyer un message privé
+    usage: /msg <joueur> <message>
+    permission: core.msg
+    aliases: [tell, pm, w]
+  reply:
+    description: Répondre au dernier message
+    usage: /reply <message>
+    aliases: [r]
+    permission: core.msg
+  socialspy:
+    description: Espionner les messages privés
+    usage: /socialspy
+    permission: core.socialspy
+
+  # Économie / Inventaire
+  kit:
+    description: Récupérer un kit
+    usage: /kit [nom]
+    permission: core.kit
+  heal:
+    description: Se soigner
+    usage: /heal [joueur]
+    permission: core.heal
+  feed:
+    description: Se nourrir
+    usage: /feed [joueur]
+    permission: core.feed
+  fly:
+    description: Activer le vol
+    usage: /fly [joueur]
+    permission: core.fly
+  speed:
+    description: Modifier sa vitesse
+    usage: /speed <1-10>
+    permission: core.speed
+  god:
+    description: Mode invincible
+    usage: /god [joueur]
+    permission: core.god
+  invsee:
+    description: Voir l'inventaire d'un joueur
+    usage: /invsee <joueur>
+    permission: core.invsee
+  enderchest:
+    description: Ouvrir l'ender chest
+    usage: /enderchest [joueur]
+    aliases: [ec]
+    permission: core.enderchest
+  workbench:
+    description: Ouvrir un établi
+    usage: /workbench
+    aliases: [wb, craft]
+    permission: core.workbench
+
+  # Modération
+  kick:
+    description: Expulser un joueur
+    usage: /kick <joueur> [raison]
+    permission: core.kick
+  ban:
+    description: Bannir un joueur
+    usage: /ban <joueur> [raison]
+    permission: core.ban
+  unban:
+    description: Débannir un joueur
+    usage: /unban <joueur>
+    permission: core.unban
+  mute:
+    description: Rendre un joueur muet
+    usage: /mute <joueur> [durée]
+    permission: core.mute
+  unmute:
+    description: Démuter un joueur
+    usage: /unmute <joueur>
+    permission: core.unmute
+  tempban:
+    description: Ban temporaire
+    usage: /tempban <joueur> <durée> [raison]
+    permission: core.tempban
+  warn:
+    description: Avertir un joueur
+    usage: /warn <joueur> <raison>
+    permission: core.warn
+  warnings:
+    description: Voir les avertissements
+    usage: /warnings <joueur>
+    permission: core.warn
+  clearwarnings:
+    description: Effacer les avertissements
+    usage: /clearwarnings <joueur>
+    permission: core.clearwarnings
+
+  # Admin
+  gamemode:
+    description: Changer le gamemode
+    usage: /gamemode <mode> [joueur]
+    aliases: [gm]
+    permission: core.gamemode
+  gms:
+    description: Survie
+    usage: /gms
+    permission: core.gamemode
+  gmc:
+    description: Créatif
+    usage: /gmc
+    permission: core.gamemode
+  gma:
+    description: Aventure
+    usage: /gma
+    permission: core.gamemode
+  gmsp:
+    description: Spectateur
+    usage: /gmsp
+    permission: core.gamemode
+  give:
+    description: Donner un item
+    usage: /give <joueur> <item> [quantité]
+    permission: core.give
+  clear:
+    description: Vider l'inventaire
+    usage: /clear [joueur]
+    permission: core.clear
+  time:
+    description: Modifier l'heure
+    usage: /time <valeur>
+    permission: core.time
+  weather:
+    description: Modifier la météo
+    usage: /weather <sun|rain|thunder>
+    permission: core.weather
+  broadcast:
+    description: Message global
+    usage: /broadcast <message>
+    aliases: [bc]
+    permission: core.broadcast
+  nick:
+    description: Changer son pseudo
+    usage: /nick <pseudo|off>
+    permission: core.nick
+  afk:
+    description: Passer en mode AFK
+    usage: /afk
+    permission: core.afk
+  seen:
+    description: Dernière connexion d'un joueur
+    usage: /seen <joueur>
+    permission: core.seen
+  whois:
+    description: Infos sur un joueur
+    usage: /whois <joueur>
+    permission: core.whois
+  setspawn:
+    description: Définir le spawn
+    usage: /setspawn
+    permission: core.setspawn
+  suicide:
+    description: Mourir
+    usage: /suicide
+    permission: core.suicide
+  hat:
+    description: Mettre un item sur la tête
+    usage: /hat
+    permission: core.hat
+  repair:
+    description: Réparer son item
+    usage: /repair
+    permission: core.repair
+
+  # CommandBlocker
+  commandblocker:
+    description: Gérer le blocage de commandes
+    usage: /commandblocker <add|remove|list|info|reload>
+    permission: core.commandblocker
+    aliases: [cb]
+
+  # CustomCraft
+  craft:
+    description: Gérer les crafts personnalisés
+    usage: /craft <list|info|delete|reload|gui|addshaped|addshapeless>
+    permission: core.craft.admin
+
+  # Plugin management
+  itsvanillaessential:
+    description: Commandes d'administration du plugin
+    usage: /itsvanillaessential [reload]
+    permission: core.admin
+    aliases: [ive, ce]
+
+
+  # Team system
+  team:
+    description: Gérer les équipes
+    usage: /team <create|delete|add|remove|list|info|chat|setmax|setmaces|prefix|reload>
+    permission: core.team
+
+  # Craft Limiter
+  craftlimit:
+    description: Gérer les limites de craft
+    usage: /craftlimit <list|info|set|remove|check|reset|reload>
+    permission: core.craftlimit
+
+  # Item Limiter
+  itemlimit:
+    description: Gérer les limites d'items
+    usage: /itemlimit <list|info|set|remove|check|reload>
+    permission: core.itemlimit
+
+  # Mace Limiter
+  macelimit:
+    description: Gérer les limites de mace
+    usage: /macelimit <info|set|check|reset|reload>
+    permission: core.macelimit
+
+  # Admin Menu
+  adminmenu:
+    description: Menu d'administration graphique
+    usage: /adminmenu
+    permission: core.adminmenu
+    aliases: [amenu, menu]
+
+permissions:
+  core.*:
+    description: Toutes les permissions
+    default: op
+    children:
+      core.spawn: true
+      core.home: true
+      core.sethome: true
+      core.delhome: true
+      core.warp: true
+      core.setwarp: true
+      core.delwarp: true
+      core.tp: true
+      core.tpa: true
+      core.tphere: true
+      core.back: true
+      core.rtp: true
+      core.msg: true
+      core.socialspy: true
+      core.kit: true
+      core.heal: true
+      core.feed: true
+      core.fly: true
+      core.speed: true
+      core.god: true
+      core.invsee: true
+      core.enderchest: true
+      core.workbench: true
+      core.kick: true
+      core.ban: true
+      core.unban: true
+      core.mute: true
+      core.unmute: true
+      core.tempban: true
+      core.warn: true
+      core.clearwarnings: true
+      core.gamemode: true
+      core.give: true
+      core.clear: true
+      core.time: true
+      core.weather: true
+      core.broadcast: true
+      core.nick: true
+      core.afk: true
+      core.seen: true
+      core.whois: true
+      core.setspawn: true
+      core.suicide: true
+      core.hat: true
+      core.repair: true
+      core.commandblocker: true
+      core.craft.admin: true
+      core.admin: true
+      core.commandblocker.bypass: true
+      core.commandblocker.notify: true
+      core.team: true
+      core.craftlimit: true
+      core.itemlimit: true
+      core.macelimit: true
+      core.macelimit.bypass: true
+      core.adminmenu: true

@@ -1,0 +1,105 @@
+# ╔══════════════════════════════════════════════════════════╗
+# ║         CoreEssentials - Command Blocker                 ║
+# ╠══════════════════════════════════════════════════════════╣
+# ║  Bloque des commandes pour certains groupes/joueurs.     ║
+# ║                                                          ║
+# ║  FORMAT :                                                ║
+# ║    - command: "setspawn"        # sans le /              ║
+# ║      bypass-permission: "core.bypass.setspawn"  # opt.  ║
+# ║      worlds: []                 # vide = tous les mondes ║
+# ║      gamemodes: []              # vide = tous les gm     ║
+# ║      actions:                                            ║
+# ║        block: true              # bloquer la commande    ║
+# ║        message: ""              # override du message    ║
+# ║        notify-admins: true      # alerter les admins     ║
+# ║        run-commands: []         # cmds à exécuter quand  ║
+# ║                                 # la commande est bloquée║
+# ║                                                          ║
+# ║  WILDCARDS :                                             ║
+# ║    "op" bloque /op et /op <tab>                          ║
+# ║    "*" bloque TOUT (whitelist mode si combined)          ║
+# ║                                                          ║
+# ║  BYPASS :                                                ║
+# ║    Permission globale : core.commandblocker.bypass       ║
+# ║    Permission par règle: définie dans bypass-permission  ║
+# ╚══════════════════════════════════════════════════════════╝
+
+enabled: true
+
+# Permission pour bypass toutes les règles
+global-bypass-permission: "core.commandblocker.bypass"
+
+# Notifier les admins (permission core.commandblocker.notify)
+notify-admins-default: true
+
+# ─── RÈGLES ────────────────────────────────────────────────
+blocked-commands:
+
+  # Exemple 1 : Bloquer /setspawn pour tout le monde sauf les OPs
+  - command: "setspawn"
+    bypass-permission: "core.bypass.setspawn"
+    worlds: []
+    gamemodes: []
+    actions:
+      block: true
+      message: ""           # vide = utilise le message par défaut de messages.yml
+      notify-admins: false
+      run-commands: []
+
+  # Exemple 2 : Bloquer /op et /deop avec notification admins
+  - command: "op"
+    bypass-permission: "core.bypass.op"
+    worlds: []
+    gamemodes: []
+    actions:
+      block: true
+      message: "&cVous ne pouvez pas utiliser cette commande."
+      notify-admins: true
+      run-commands: []
+
+  - command: "deop"
+    bypass-permission: "core.bypass.deop"
+    worlds: []
+    gamemodes: []
+    actions:
+      block: true
+      message: ""
+      notify-admins: true
+      run-commands: []
+
+  # Exemple 3 : Bloquer /gamemode en survie seulement
+  - command: "gamemode"
+    bypass-permission: "core.bypass.gamemode"
+    worlds: []
+    gamemodes:
+      - SURVIVAL
+    actions:
+      block: true
+      message: "&cVous ne pouvez pas changer de gamemode en survie !"
+      notify-admins: false
+      run-commands: []
+
+  # Exemple 4 : Bloquer /kill dans le monde "world_pvp" et exécuter une commande
+  - command: "kill"
+    bypass-permission: "core.bypass.kill"
+    worlds:
+      - world_pvp
+    gamemodes: []
+    actions:
+      block: true
+      message: "&cLa commande /kill est désactivée en zone PvP !"
+      notify-admins: false
+      # {player} = nom du joueur qui a tenté la commande
+      run-commands:
+        - "msg {player} Pas de triche en PvP !"
+
+  # Exemple 5 : Bloquer /stop pour éviter les accidents
+  - command: "stop"
+    bypass-permission: "core.bypass.stop"
+    worlds: []
+    gamemodes: []
+    actions:
+      block: true
+      message: "&cCette commande est désactivée. Contactez un admin."
+      notify-admins: true
+      run-commands: []

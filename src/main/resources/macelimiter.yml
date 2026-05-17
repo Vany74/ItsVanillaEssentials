@@ -1,0 +1,59 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║          CoreEssentials - Mace Limiter                       ║
+# ╠══════════════════════════════════════════════════════════════╣
+# ║  Système dédié à la limitation des MACES (1.21+).            ║
+# ║                                                              ║
+# ║  Limites disponibles :                                       ║
+# ║   - Par joueur (possession)                                  ║
+# ║   - Par team (nombre total dans une team)                    ║
+# ║   - Par monde                                                ║
+# ║   - Cooldown entre deux utilisations                         ║
+# ║   - Désactiver le smash attack                               ║
+# ║   - Limiter les dégâts du smash attack                       ║
+# ║                                                              ║
+# ║  COMMANDES :                                                 ║
+# ║    /macelimit info                                           ║
+# ║    /macelimit set <option> <valeur>                          ║
+# ║    /macelimit check <joueur>                                 ║
+# ║    /macelimit reset <joueur>                                 ║
+# ║    /macelimit reload                                         ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+enabled: true
+
+# ── Limite par joueur ────────────────────────────────────────────
+per-player:
+  enabled: true
+  max: 1                              # Nb max de maces dans l'inventaire
+  bypass-permission: "core.macelimit.bypass"
+  blocked-message: "&cVous ne pouvez pas avoir plus d'une §6mace&c !"
+  action: "deny"                      # deny | remove | warn
+
+# ── Limite par team ──────────────────────────────────────────────
+per-team:
+  enabled: true
+  max: 1                              # Nb max de maces par team
+  blocked-message: "&cVotre team a déjà atteint la limite de &e{max} &cmace(s) !"
+  # Si le joueur n'a pas de team, applique la limite par joueur
+  apply-per-player-if-no-team: true
+
+# ── Smash Attack ─────────────────────────────────────────────────
+smash-attack:
+  enabled: true
+  # Désactiver complètement le smash attack (dégâts de chute)
+  disable: false
+  # Limiter les dégâts max du smash attack (0 = pas de limite)
+  max-damage: 0
+  # Cooldown entre deux smash attacks par joueur (secondes, 0 = désactivé)
+  cooldown: 0
+  blocked-message: "&cSmash attack en cooldown !"
+  # Mondes où le smash attack est désactivé
+  disabled-worlds: []
+
+# ── Mondes où la mace est interdite ─────────────────────────────
+banned-worlds: []
+
+# ── Messages ─────────────────────────────────────────────────────
+messages:
+  pickup-denied: "&cVous ne pouvez pas ramasser cette mace."
+  craft-denied: "&cVous ne pouvez pas crafter cette mace."

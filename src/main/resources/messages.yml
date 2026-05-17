@@ -1,0 +1,212 @@
+# ╔══════════════════════════════════════════════════════╗
+# ║           CoreEssentials - Messages                  ║
+# ║  Utilisez & pour les couleurs  (&a, &c, &6, etc.)    ║
+# ║  Placeholders disponibles listés dans les commentaires║
+# ╚══════════════════════════════════════════════════════╝
+
+# ─── GÉNÉRAL ──────────────────────────────────────────────
+prefix: "&8[&6Core&8] &r"
+no-permission: "&cVous n'avez pas la permission d'utiliser cette commande."
+player-only: "&cCette commande est réservée aux joueurs."
+player-not-found: "&cJoueur &e{player} &cintrouvable ou hors ligne."
+invalid-number: "&cNombre invalide: &e{input}&c."
+console-sender: "Console"
+
+# ─── TÉLÉPORTATION ────────────────────────────────────────
+teleport:
+  # {delay} = secondes restantes
+  countdown: "&eTéléportation dans &6{delay} &eseconde(s)... Ne bougez pas !"
+  success: "&aTéléporté(e) avec succès !"
+  cancelled: "&cTéléportation annulée car vous avez bougé."
+  no-back: "&cAucune position précédente enregistrée."
+  back-success: "&aRetour à votre dernière position."
+  rtp-searching: "&eRecherche d'une position aléatoire..."
+  # {x} {y} {z}
+  rtp-success: "&aTéléporté(e) aléatoirement en &e{x}&a, &e{y}&a, &e{z}&a !"
+  rtp-failed: "&cImpossible de trouver une position valide. Réessayez."
+  no-spawn: "&cLe spawn n'est pas défini. Utilisez &f/setspawn&c."
+  spawn-success: "&aTéléporté(e) au spawn !"
+  spawn-set: "&aSpawn défini à votre position actuelle !"
+
+# ─── HOME ─────────────────────────────────────────────────
+home:
+  # {home} = nom du home
+  teleported: "&aTéléporté(e) au home &e{home}&a."
+  not-found: "&cHome &e{home} &cintrouvable. Utilisez &f/homes &cpour la liste."
+  set: "&aHome &e{home} &adéfini !"
+  deleted: "&aHome &e{home} &asupprimé."
+  delete-not-found: "&cHome &e{home} &cintrouvable."
+  # {count} {max}
+  limit-reached: "&cVous avez atteint la limite de &e{max} &chomes."
+  # {count} {max}
+  list-header: "&6Vos homes &7({count}/{max})&6 :"
+  list-entry: "  &7- &e{home}"
+  list-empty: "&cVous n'avez aucun home. Utilisez &f/sethome <nom>&c."
+
+# ─── WARP ─────────────────────────────────────────────────
+warp:
+  # {warp}
+  teleported: "&aTéléporté(e) au warp &e{warp}&a."
+  not-found: "&cWarp &e{warp} &cintrouvable."
+  set: "&aWarp &e{warp} &acréé !"
+  deleted: "&aWarp &e{warp} &asupprimé."
+  delete-not-found: "&cWarp &e{warp} &cintrouvable."
+  list-header: "&6Warps disponibles :"
+  # {warps} = liste séparée par des virgules
+  list: "&e{warps}"
+  list-empty: "&cAucun warp disponible."
+
+# ─── TPA ──────────────────────────────────────────────────
+tpa:
+  # {player}
+  sent: "&aDemande de téléportation envoyée à &e{player}&a."
+  # {player}
+  received: "&e{player} &fsouhaite se téléporter à vous. &a/tpaccept &7ou &c/tpdeny"
+  accepted-requester: "&aTéléportation acceptée par &e{player}&a !"
+  # {player}
+  accepted-target: "&aVous avez accepté la demande de &e{player}&a."
+  # {player}
+  denied-requester: "&cVotre demande a été refusée par &e{player}&c."
+  denied-target: "&cDemande refusée."
+  expired-requester: "&cVotre demande de tp a expiré."
+  none-pending: "&cAucune demande de téléportation en attente."
+  offline: "&cCe joueur n'est plus connecté."
+  # {player}
+  tphere-sender: "&e{player} &aa été téléporté(e) vers vous."
+  # {player}
+  tphere-target: "&eVous avez été téléporté(e) vers &f{player}&e."
+
+# ─── GAMEPLAY ─────────────────────────────────────────────
+gameplay:
+  heal-self: "&aVous avez été soigné(e) !"
+  # {player}
+  heal-other-sender: "&e{player} &asoigné(e)."
+  # {sender}
+  heal-other-target: "&aVous avez été soigné(e) par &e{sender}&a."
+  feed-self: "&aVous avez été nourri(e) !"
+  # {player}
+  feed-other-sender: "&e{player} &anourri(e)."
+  # {sender}
+  feed-other-target: "&aVous avez été nourri(e) par &e{sender}&a."
+  # {state} = ACTIVÉ / DÉSACTIVÉ
+  fly-self: "&fVol : {state}"
+  fly-other-sender: "&fVol de &e{player} &f: {state}"
+  fly-other-target: "&fVol : {state} &fpar &e{sender}&f."
+  # {level}
+  speed-set: "&aVitesse réglée à &e{level}&a."
+  god-self: "&fMode God : {state}"
+  god-other-sender: "&fMode God de &e{player} &f: {state}"
+  god-other-target: "&fMode God : {state} &fpar &e{sender}&f."
+  state-enabled: "&aACTIVÉ"
+  state-disabled: "&cDÉSACTIVÉ"
+  workbench-open: "&aÉtabli ouvert."
+  hat-set: "&aCoiffure mise !"
+  hat-no-item: "&cTenez un item en main."
+  repair-success: "&aItem réparé !"
+  repair-no-item: "&cTenez un item en main."
+  repair-invalid: "&cCet item ne peut pas être réparé."
+  invsee-open: "&aInventaire de &e{player}&a."
+  # {gamemode}
+  gamemode-self: "&aGamemode : &e{gamemode}"
+  gamemode-other-sender: "&aGamemode de &e{player} &arégié à &e{gamemode}&a."
+  gamemode-other-target: "&aGamemode changé à &e{gamemode} &apar &e{sender}&a."
+  # {player} {item} {amount}
+  give-sender: "&aDonné &e{amount}x {item} &aà &e{player}&a."
+  give-target: "&aVous avez reçu &e{amount}x {item}&a."
+  give-invalid-item: "&cItem &e{item} &cinconnu."
+  clear-self: "&aInventaire vidé."
+  clear-other-sender: "&aInventaire de &e{player} &avidé."
+  clear-other-target: "&aVotre inventaire a été vidé par &e{sender}&a."
+
+# ─── KIT ──────────────────────────────────────────────────
+kit:
+  # {kit}
+  received: "&aKit &e{kit} &arécupéré !"
+  not-found: "&cKit &e{kit} &cintrouvable."
+  no-access: "&cVous n'avez pas accès au kit &e{kit}&c."
+  once-used: "&cVous avez déjà réclamé ce kit &7(usage unique)&c."
+  # {remaining}
+  cooldown: "&cCooldown: &e{remaining} &crestant."
+  list-header: "&6Kits disponibles :"
+  list: "&e{kits}"
+
+# ─── MESSAGES PRIVÉS ──────────────────────────────────────
+msg:
+  # {from} {to} {message}
+  format: "&7[&fMP&7] &e{from} &7→ &e{to}&7: &f{message}"
+  socialspy-format: "&8[SocialSpy] &7[&fMP&7] &e{from} &7→ &e{to}&7: &f{message}"
+  no-reply: "&cAucun message récent à qui répondre."
+  target-offline: "&cCe joueur n'est plus connecté."
+  socialspy-on: "&fSocialSpy : &aACTIVÉ"
+  socialspy-off: "&fSocialSpy : &cDÉSACTIVÉ"
+
+# ─── MODÉRATION ───────────────────────────────────────────
+moderation:
+  muted: "&cVous êtes muet(e)."
+  # {player} {duration}
+  mute-sender: "&e{player} &fmuté(e) &7({duration})&f."
+  # {duration}
+  mute-target: "&cVous avez été rendu(e) muet(te) &7({duration})&c."
+  unmute-sender: "&e{player} &adémuté(e)."
+  unmute-target: "&aVous n'êtes plus muet(e)."
+  not-muted: "&e{player} &cn'est pas muté(e)."
+  # {player} {reason}
+  kick-broadcast: "&e{player} &ca été expulsé(e). &7({reason})"
+  kick-message: "&cVous avez été expulsé(e).\n&7Raison : &e{reason}"
+  # {player} {reason}
+  ban-broadcast: "&c{player} &fa été banni(e). &7({reason})"
+  ban-message: "&cVous avez été banni(e).\n&7Raison : &e{reason}"
+  # {player} {duration} {reason}
+  tempban-broadcast: "&c{player} &fbanni(e) pour &e{duration}&7. ({reason})"
+  tempban-message: "&cBan temporaire : &e{duration}\n&7Raison : &e{reason}"
+  unban-success: "&e{player} &adébanni(e)."
+  not-banned: "&e{player} &cn'est pas banni(e)."
+  # {count} {reason}
+  warn-target: "&c⚠ Avertissement #{count} : &e{reason}"
+  # {player} {count}
+  warn-sender: "&e{player} &aavert i(e) &7({count} avert. total)."
+  # {player} {reason}
+  warn-broadcast: "&e{player} &ca reçu un avertissement. &7({reason})"
+  warnings-header: "&6Avertissements de &e{player} &7({count}) &6:"
+  warnings-entry: "  &7#{num} &cpar &f{by} &7- &e{reason}"
+  warnings-empty: "&e{player} &fn'a aucun avertissement."
+  clear-warnings-sender: "&aAvertissements de &e{player} &aeffacés."
+  clear-warnings-target: "&aVos avertissements ont été effacés."
+
+# ─── ADMIN ────────────────────────────────────────────────
+admin:
+  # {message}
+  broadcast-format: "&6[Annonce] &f{message}"
+  time-set: "&aHeure réglée à &e{time}&a."
+  weather-sun: "&aMétéo : ☀ Ensoleillé"
+  weather-rain: "&9Météo : 🌧 Pluie"
+  weather-thunder: "&8Météo : ⚡ Orage"
+  weather-invalid: "&cValeur invalide. Utilisez : &esun&c, &erain&c, &ethunder"
+
+# ─── NICK ─────────────────────────────────────────────────
+nick:
+  set: "&aPseudo changé en : {nick}"
+  reset: "&aPseudo réinitialisé."
+  too-long: "&cPseudo trop long (max &e{max} &ccaractères)."
+
+# ─── AFK ──────────────────────────────────────────────────
+afk:
+  # {player}
+  now-afk: "&e{player} &fest maintenant AFK."
+  no-longer-afk: "&e{player} &fn'est plus AFK."
+
+# ─── SEEN ─────────────────────────────────────────────────
+seen:
+  # {player}
+  online: "&e{player} &aest actuellement connecté(e)."
+  # {player} {date}
+  offline: "&e{player} &fvu(e) pour la dernière fois le &7{date}&f."
+  unknown: "&cJoueur inconnu."
+
+# ─── COMMAND BLOCKER ──────────────────────────────────────
+command-blocker:
+  # {command} = la commande bloquée
+  blocked-message: "&cLa commande &e/{command} &cest bloquée sur ce serveur."
+  # Message envoyé aux admins (permission core.commandblocker.notify) quand un joueur tente une commande bloquée
+  # {player} {command}
+  notify-message: "&8[CB] &e{player} &fa tenté d'utiliser &c/{command}"

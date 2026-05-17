@@ -1,0 +1,61 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║          CoreEssentials - Craft Limiter                      ║
+# ╠══════════════════════════════════════════════════════════════╣
+# ║  Permet de limiter les crafts par :                          ║
+# ║   - Nombre maximum par joueur (global ou par item)           ║
+# ║   - Permission requise pour crafter                          ║
+# ║   - Cooldown entre deux crafts                               ║
+# ║   - Mondes autorisés/interdits                               ║
+# ║   - Gamemodes autorisés                                      ║
+# ║                                                              ║
+# ║  COMMANDES :                                                 ║
+# ║    /craftlimit list              - voir toutes les limites    ║
+# ║    /craftlimit info <item>       - détails d'une limite       ║
+# ║    /craftlimit set <item> <opt> <val> - modifier une limite   ║
+# ║    /craftlimit remove <item>     - supprimer une limite       ║
+# ║    /craftlimit check <joueur> <item> - voir le compteur       ║
+# ║    /craftlimit reset <joueur> [item] - reset le compteur      ║
+# ║    /craftlimit reload            - recharger                  ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+enabled: true
+
+# Message envoyé quand un craft est bloqué (overridable par règle)
+default-blocked-message: "&cVous ne pouvez pas crafter cet item."
+
+limits:
+  # ── Exemple : Limiter les élytra à 1 par joueur ──────────────
+  ELYTRA:
+    enabled: true
+    max-per-player: 1
+    permission: ""                    # vide = tout le monde peut crafter
+    bypass-permission: "core.craftlimit.bypass.elytra"
+    # Cooldown en secondes entre deux crafts (0 = pas de cooldown)
+    cooldown: 0
+    # Mondes où la limite s'applique (vide = partout)
+    worlds: []
+    # Message custom (vide = message par défaut)
+    blocked-message: "&cVous avez déjà crafté une élytra !"
+    count-on-pickup: true             # compte à la récupération de l'item dans la table de craft
+
+  # ── Exemple : Limiter les têtes de wither à 3 par joueur ─────
+  WITHER_SKELETON_SKULL:
+    enabled: true
+    max-per-player: 3
+    permission: "core.craft.wither"
+    bypass-permission: "core.craftlimit.bypass.wither"
+    cooldown: 300
+    worlds: []
+    blocked-message: ""
+    count-on-pickup: true
+
+  # ── Exemple : Limiter les totems à 5 par joueur ───────────────
+  TOTEM_OF_UNDYING:
+    enabled: true
+    max-per-player: 5
+    permission: ""
+    bypass-permission: "core.craftlimit.bypass.totem"
+    cooldown: 600
+    worlds: []
+    blocked-message: "&cLimite de totems atteinte &7(5 max)&c."
+    count-on-pickup: true
